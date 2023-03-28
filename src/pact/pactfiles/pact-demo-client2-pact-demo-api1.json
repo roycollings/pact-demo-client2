@@ -1,0 +1,44 @@
+{
+  "consumer": {
+    "name": "pact-demo-client2"
+  },
+  "interactions": [
+    {
+      "description": "a request to say hello",
+      "providerState": "Saying hello",
+      "request": {
+        "method": "GET",
+        "path": "/"
+      },
+      "response": {
+        "body": {
+          "message": "hello"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.message": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "11.0.2"
+    },
+    "pactRust": {
+      "ffi": "0.4.0",
+      "models": "1.0.4"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "pact-demo-api1"
+  }
+}
